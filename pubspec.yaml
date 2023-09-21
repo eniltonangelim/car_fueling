@@ -40,6 +40,9 @@ dependencies:
   flutter_bloc: ^8.1.3
   dartz: ^0.10.1
 
+  module_gamer:
+    path: ./packages/module_gamer
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
