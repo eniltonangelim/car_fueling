@@ -4,6 +4,7 @@ import 'package:module_gamer/gamer/domain/usecases/generate_stops_usecase.dart';
 import 'package:module_gamer/module_gamer.dart';
 
 part 'game_event.dart';
+
 part 'game_state.dart';
 
 enum StateStatus {
@@ -64,7 +65,10 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     final eitherStops =
         await _stopsUseCase(GenerateStopsUseCaseParam(state.distance));
 
-    eitherStops.fold((l) => emit(state), (r) => emit(state.copyWith(stops: r)));
+    eitherStops.fold(
+      (l) => emit(state),
+      (r) => emit(state.copyWith(stops: r)),
+    );
   }
 
   void onTankChange(TankChangeGameEvent event, Emitter<GameState> emit) {
@@ -98,5 +102,4 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   void onRefresh(RefreshGameEvent event, Emitter<GameState> emit) {
     emit(GameState.initial());
   }
-
 }

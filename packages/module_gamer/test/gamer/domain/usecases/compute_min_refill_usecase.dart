@@ -40,7 +40,8 @@ void main() {
       'should be [2] the minimum refill '
       'to [200, 375, 550, 750]', () async {
     // arrange
-    when(tUseCase(tParams950Miles)).thenAnswer((_) async => const Right(2));
+    when(tUseCase(tParams950Miles))
+        .thenAnswer((_) async => const Right(2));
     // actual
     final actual = await tUseCase(tParams950Miles);
     // assert
@@ -65,9 +66,13 @@ void main() {
 
   test(
       'should be [0] the minimum refill '
-      'to [100, 150]', () {
+      'to [100, 150]', () async {
     // arrange
+    when(tUseCase(tParams3Miles))
+        .thenAnswer((_) async => const Right(0));
     // actual
+    final actual = await tUseCase(tParams3Miles);
     // assert
+    expect(actual, const Right(0));
   });
 }
