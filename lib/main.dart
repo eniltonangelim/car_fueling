@@ -2,6 +2,7 @@ import 'package:car_fueling/adapters/adapters.dart';
 import 'package:car_fueling/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:module_gamer/gamer/domain/usecases/generate_stops_usecase.dart';
 import 'package:module_gamer/module_gamer.dart';
 
 void main() {
@@ -20,6 +21,10 @@ class MyApp extends StatelessWidget {
         create: (_) => GameBloc(
           artBoardUseCase: GetArtBoardUseCase(
               BoardRepositoryImpl(BoardLocalDataSourceImpl())),
+          stopsUseCase: GenerateStopsUseCase(
+              RefillRepositoryImpl(RefillLocalDataSourceImpl())),
+          computeMinRefillUseCase: ComputeMinRefillUseCase(
+              RefillRepositoryImpl(RefillLocalDataSourceImpl())),
         ),
         child: const GamePage(),
       ),

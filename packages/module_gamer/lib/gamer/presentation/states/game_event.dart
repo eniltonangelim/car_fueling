@@ -13,7 +13,7 @@ class LoadGameEvent extends GameEvent {
   List<Object?> get props => [type];
 }
 
-class LoadedGameEvent extends GameEvent {
+class UpdateStopsGameEvent extends GameEvent {
   @override
   List<Object?> get props => [];
 }
@@ -51,4 +51,13 @@ class DistanceChangeGameEvent extends GameEvent {
 
   @override
   List<Object> get props => [distance];
+}
+
+class RefreshGameEvent extends GameEvent {
+  const RefreshGameEvent();
+
+  @override
+  List<Object?> get props => [];
+
+
 }

@@ -7,12 +7,16 @@ class GameState extends Equatable {
     required this.tank,
     required this.distance,
     required this.stops,
+    required this.answer,
+    required this.status,
   });
 
   final Board board;
+  final StateStatus status;
   final BoardType type;
   final int tank;
   final int distance;
+  final int answer;
   final List<int> stops;
 
   factory GameState.initial() => GameState._(
@@ -21,6 +25,8 @@ class GameState extends Equatable {
         tank: 400,
         distance: 950,
         stops: const [],
+        answer: 0,
+        status: StateStatus.initial,
       );
 
   GameState copyWith({
@@ -29,6 +35,8 @@ class GameState extends Equatable {
     int? tank,
     int? distance,
     List<int>? stops,
+    int? answer,
+    StateStatus? status,
   }) =>
       GameState._(
         board: board ?? this.board,
@@ -36,8 +44,10 @@ class GameState extends Equatable {
         tank: tank ?? this.tank,
         distance: distance ?? this.distance,
         stops: stops ?? this.stops,
+        answer: answer ?? this.answer,
+        status: status ?? this.status,
       );
 
   @override
-  List<Object> get props => [board, type, tank, distance, stops];
+  List<Object> get props => [board, type, tank, distance, stops, status];
 }

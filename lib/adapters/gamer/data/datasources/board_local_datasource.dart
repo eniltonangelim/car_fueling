@@ -30,6 +30,7 @@ class BoardLocalDataSourceImpl implements BoardLocalDataSource {
           StateMachineController.fromArtboard(artBoard!, "Travel State");
 
       if (stateMachineController != null) {
+        stateMachineController.isActive = true;
         artBoard.addController(stateMachineController);
       }
     }
