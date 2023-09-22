@@ -10,4 +10,4 @@ Inputs: Inteiros d e m, bem como uma sequência de inteiros stop1 < stop2 < \cdo
 | `m`      | Capacidade do tank | 1l => 1km                      |
 | `stopn`  | Pontos de paradas  | Simboliza um posto de gasolina |
 
-![](./assets/carfueling_home.jpeg)
+![](./assets/carfueling_home.png)
